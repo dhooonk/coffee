@@ -1,0 +1,195 @@
+<section class="wrapper">
+<section class="page_head">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+               <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Order</li>
+                    </ul>
+                </nav>
+
+                <div class="page_title">
+                    <h2>주문하기</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="content elements">
+    <div class="container">
+
+    <div class="row sub_content">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="dividerHeading">
+                <h4><span>장바구니</span></h4>
+            </div>
+        </div>
+
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="promo_box">
+                <div class="col-lg-9 col-sm-9">
+                    <div class="promo_content">
+                        <h3>내손으로 만드는 커피</h3>
+                        <p>Lorem ipsum dolor sit amet, cons adipiscing elit. Aenean commodo ligula eget dolor. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+        <table class="table table-hover order-table">
+            <thead class="text-center">
+            <tr>
+                <th class="col-lg-1 col-md-1 col-sm-1"></th>
+                <th class="col-lg-6 col-md-6 col-sm-6">이름</th>
+                <th class="col-lg-1 col-md-1 col-sm-1">가격</th>
+                <th class="col-lg-1 col-md-1 col-sm-1">수량</th>
+                <th class="col-lg-1 col-md-1 col-sm-1">총 가격</th>
+                <th class="col-lg-3 col-md-3 col-sm-3"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><input type="checkbox" name="orderCheck" value="1"></td>
+                <td>정말정말 단 아메리카노</td>
+                <td id="pct_val_1">5000</td>
+                <td><input type="number" class="order-number" min="1"  id="pct_quant_1" value="1"></td>
+                <td id="valQuant_1">5000</td>
+                <td>
+                    <div class="col-2 btn-group">
+                        <button class="btn btn-xs btn-success" type="button" id="">수정</button>
+                        <button class="btn btn-xs btn-danger" type="button" style='margin-left: 4px;'>삭제</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="orderCheck" value="2"></td>
+                <td>헤이즐넛 아이스 아메리카노</td>
+                <td id="pct_val_2">5000</td>
+                <td><input type="number" class="order-number" min="1" id="pct_quant_2" value="1"></td>
+                <td id="valQuant_2">5000</td>
+                <td>
+                    <div class="col-2 btn-group">
+                        <button class="btn btn-xs btn-success" type="button">수정</button>
+                        <button class="btn btn-xs btn-danger" type="button" style='margin-left: 4px;'>삭제</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="orderCheck" value="3"></td>
+                <td>우유와 커피 1:1</td>
+                <td id="pct_val_3">4500</td>
+                <td><input type="number" class="order-number" min="1" id="pct_quant_3" value="1"></td>
+                <td id="valQuant_3">4500</td>
+                <td>
+                    <div class="col-2 btn-group">
+                        <button class="btn btn-xs btn-success" type="button">수정</button>
+                        <button class="btn btn-xs btn-danger" type="button" style='margin-left: 4px;'>삭제</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="orderCheck" value="4"></td>
+                <td>맥주 + 커피 맥피</td>
+                <td id="pct_val_4">6000</td>
+                <td><input type="number" class="order-number" min="1" id="pct_quant_4" value="1"></td>
+                <td id="valQuant_4">6000</td>
+                <td>
+                    <div class="col-2 btn-group">
+                        <button class="btn btn-xs btn-success" type="button">수정</button>
+                        <button class="btn btn-xs btn-danger" type="button" style='margin-left: 4px;'>삭제</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" name="orderCheck" value="5"></td>
+                <td>스웨디시 레몬티</td>
+                <td id="pct_val_5">5000</td>
+                <td><input type="number" class="order-number" min="1" id="pct_quant_5" value="1"></td>
+                <td id="valQuant_5">5000</td>
+                <td>
+                    <div class="col-2 btn-group">
+                        <button class="btn btn-xs btn-success" type="button">수정</button>
+                        <button class="btn btn-xs btn-danger" type="button" style='margin-left: 4px;'>삭제</button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="col-lg-10 col-sm-10">
+                <div class="promo_content text-right" style="margin-top: 10px;">
+                    <h3>총 가격 : <span id="totalVal">0<span></h3>
+                </div>
+            </div>
+            <div class="col-lg-2 col-sm-2">
+                <div class="pb_action">
+                    <a href="#fakelink" class="btn btn-default btn-lg">
+                        <i class="fa fa-check"></i>
+                        주문하기
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div> <!--./Container-->
+    </section>
+</section>
+
+<script>
+$(document).ready(function (){
+    
+    // 전체가격 초기화
+    orderIndex.totalValFn();
+
+    // 수량을 클릭하면 가격이 변하도록 event 추가
+    $( "input[id*='pct_quant_']" ).on('input', function(event) {
+        
+        // 1보다 작으면 에러!
+        if(event.target.value < 1) {
+            
+            alert("1보다 작을 수 없습니다!");
+            event.target.value = 1;
+        } else {
+            
+            // input에 소수점을 직접 타이핑 하는 경우 입력 가능
+            // floor로 입력 유효성 검사
+            event.target.value = Math.floor(event.target.value);
+
+            // 클릭한 row의 id를 가져옴
+            changedId = event.target.id.split("_")[2];
+            
+            // 그 row의 총 가격 = 가격 * 수량
+            $("#valQuant_"+changedId).html(
+                $("#pct_val_"+changedId).text() * $("#pct_quant_"+changedId).val() );
+    
+        }
+        
+        // 전체가격 업데이트
+        orderIndex.totalValFn();
+        });
+})
+
+var orderIndex = {
+
+    // 전체가격 수정메서드입니다.
+    totalValFn : function() {
+        
+        totalval = 0;
+
+        // 총 가격을 모두 가져와서 totalVal에 저장합니다.
+        $( "td[id*='valQuant_']" ).each(function(eachVal) {
+            
+            totalval += +$(this).html();
+        })
+        $("#totalVal").html(totalval);
+    }
+}
+</script>
