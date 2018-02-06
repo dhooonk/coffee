@@ -4863,3 +4863,585 @@ ul{
         z-index: 1;
     }
 }
+
+.coffee-icon {
+    width: 172px;
+    position: relative;
+  }
+  .coffee-icon-1 {
+    height: 248px;
+  }
+  @keyframes coffee-animation {
+    0% {
+      transform: rotate(0deg);
+      top: 0;
+    }
+    40% {
+      transform: rotate(0deg);
+      top: 0;
+    }
+    60% {
+      transform: rotate(-15deg);
+      top: 2px;
+    }
+    100% {
+      transform: rotate(-15deg);
+      top: 2px;
+    }
+  }
+  .coffee-icon-1 .coffee-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 59px;
+    transform-origin: left bottom;
+    animation: coffee-animation 2.2s linear 0s infinite alternate;
+  }
+  .coffee-icon-1 .coffee-top:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 65%;
+    margin: auto;
+    height: 0px;
+    border-bottom: 25px solid #684d43;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+  }
+  .coffee-icon-1 .coffee-top:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 34px;
+    background-color: #49362f;
+    border-radius: 8px;
+  }
+  .coffee-icon-1 .coffee-body {
+    position: absolute;
+    top: 59px;
+    left: 0;
+    width: 100%;
+    height: 189px;
+  }
+  .coffee-icon-1 .coffee-body:before {
+    content: "";
+    display: block;
+    width: calc(87% - 15px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-bottom: 189px solid #f4e9d7;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    transform: rotate(180deg);
+  }
+  .coffee-icon-1 .coffee-body:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 33px;
+    left: 0;
+    right: 0;
+    width: 73%;
+    margin: auto;
+    border-bottom: 93px solid #987b53;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    transform: rotate(180deg);
+  }
+  .coffee-icon-2 {
+    height: 174px;
+  }
+  .coffee-icon-2 .coffee-cup {
+    width: 133px;
+    height: 122px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+  }
+  .coffee-icon-2 .coffee-cup:before {
+    content: "";
+    display: block;
+    width: 130px;
+    position: absolute;
+    left: 0px;
+    bottom: 21px;
+    height: 0px;
+    border-bottom: 98px solid #f4e9d7;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    transform: rotate(180deg);
+    z-index: 2;
+  }
+  .coffee-icon-2 .coffee-cup:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 15px;
+    bottom: 0px;
+    height: 21px;
+    width: 103px;
+    background-color: #f4e9d7;
+    border-radius: 0px 0px 5px 5px;
+  }
+  .coffee-icon-2 .coffee-cup .cup-lifter {
+    width: 55px;
+    height: 35px;
+    position: absolute;
+    top: 35px;
+    right: -23px;
+    border-top: 10px solid #f4e9d7;
+    border-left: 10px solid #f4e9d7;
+    border-radius: 50%;
+    transform: rotate(120deg);
+  }
+  .coffee-icon-2 .coffee-cup .coffee {
+    position: absolute;
+    top: 15px;
+    left: 12px;
+    width: 97px;
+    height: 0px;
+    border-bottom: 25px solid #f4f4f4;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    transform: rotate(180deg);
+    z-index: 4;
+  }
+  .coffee-icon-2 .coffee-cup .coffee:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -35px;
+    left: 0;
+    height: 0px;
+    width: 85px;
+    border-bottom: 35px solid #987b53;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+  }
+  .coffee-icon-2 .coffee-cup .coffee:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -60px;
+    left: 6px;
+    height: 0px;
+    width: 73px;
+    border-bottom: 25px solid #49362f;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+  }
+  .coffee-icon-2 .cream {
+    position: absolute;
+    top: -55px;
+    left: 0;
+    right: 0;
+    height: 55px;
+    width: 111px;
+    margin: auto;
+    z-index: 1;
+  }
+  .coffee-icon-2 .cream .cream-part-1 {
+    width: 100%;
+    height: 38px;
+    border-radius: 40px;
+    background-color: #fff;
+    position: absolute;
+    top: 37px;
+    left: 0;
+  }
+  .coffee-icon-2 .cream .cream-part-2 {
+    height: 38px;
+    width: 60%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .coffee-icon-2 .cream .cream-part-2:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: #fff;
+    width: 70%;
+    height: 50px;
+    border-radius: 20px;
+  }
+  .coffee-icon-2 .cream .cream-part-2:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    background-color: #fff;
+    width: 80%;
+    height: 60px;
+    border-radius: 40px;
+  }
+  @keyframes milk-animation {
+    0% {
+      transform: rotate(-171deg);
+    }
+    100% {
+      transform: rotate(-165deg);
+    }
+  }
+  .coffee-icon-2 .cream .cream-part-3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 44px;
+    border-top: 4px solid #fff;
+    border-left: 21px solid #fff;
+    height: 57px;
+    border-radius: 50%;
+    transform: rotate(-171deg);
+    animation: milk-animation 0.9s linear 0s infinite alternate;
+  }
+  @keyframes choco-animation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .coffee-icon-2 .cream .choco {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .coffee-icon-2 .cream .choco .choco-item {
+    width: 4px;
+    height: 4px;
+    background-color: #49362f;
+    border-radius: 50%;
+    animation: choco-animation 0.9s linear infinite alternate;
+  }
+  .coffee-icon-2 .cream .choco .choco-item-1 {
+    position: absolute;
+    top: 19px;
+    left: 42px;
+    animation-delay: 0.1s;
+  }
+  .coffee-icon-2 .cream .choco .choco-item-2 {
+    position: absolute;
+    top: 27px;
+    left: 32px;
+    animation-delay: 0.4s;
+  }
+  .coffee-icon-2 .cream .choco .choco-item-3 {
+    position: absolute;
+    top: 35px;
+    left: 43px;
+    animation-delay: 0.8s;
+  }
+  .coffee-icon-2 .cream .choco .choco-item-4 {
+    position: absolute;
+    top: 40px;
+    left: 24px;
+    animation-delay: 1.2s;
+  }
+  .coffee-icon-2 .cream .choco .choco-item-5 {
+    position: absolute;
+    top: 47px;
+    left: 34px;
+    animation-delay: 1.6s;
+  }
+  .coffee-icon-2 .cream .choco .choco-item-6 {
+    position: absolute;
+    top: 51px;
+    left: 12px;
+    animation-delay: 2s;
+  }
+  .coffee-icon-2 .cream .choco .choco-item-7 {
+    position: absolute;
+    top: 51px;
+    left: 50px;
+    animation-delay: 2.4s;
+  }
+  .coffee-icon-3 {
+    height: 328px;
+  }
+  .coffee-icon-3 .coffee-cup {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 253px;
+    width: 100%;
+  }
+  .coffee-icon-3 .coffee-cup .coffee-cup-leg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 90px;
+    height: 83px;
+  }
+  .coffee-icon-3 .coffee-cup .coffee-cup-leg:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 16px;
+    background-color: #f4e9d7;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  .coffee-icon-3 .coffee-cup .coffee-cup-leg:after {
+    content: "";
+    display: block;
+    width: 23px;
+    height: calc(100% - 16px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #f4e9d7;
+  }
+  .coffee-icon-3 .coffee-cup .coffee-cup-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 75%;
+    height: 171px;
+    background-color: #f4e9d7;
+    border-radius: 8px 8px 50% 50%;
+    z-index: 5;
+  }
+  .coffee-icon-3 .coffee-cup .coffee-cup-lifter {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 38px;
+    height: 75px;
+    border-top: 9px solid #f4e9d7;
+    border-right: 8px solid #f4e9d7;
+    border-radius: 50%;
+    transform: rotate(22deg);
+    z-index: 4;
+  }
+  .coffee-icon-3 .coffee-cup .coffee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+  }
+  .coffee-icon-3 .coffee-cup .coffee:before {
+    content: "";
+    display: block;
+    width: calc(90% - 1px);
+    height: 50px;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #49362f;
+  }
+  .coffee-icon-3 .coffee-cup .coffee:after {
+    content: "";
+    display: block;
+    width: calc(90% - 2px);
+    height: 25px;
+    position: absolute;
+    top: 11px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: #fff;
+    border-radius: 5px 5px 0px 0px;
+  }
+  .coffee-icon-3 .coffee-cup .coffee .coffee-inner {
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    margin: auto;
+    border-radius: 0px 0px 50% 50%;
+    overflow: hidden;
+  }
+  .coffee-icon-3 .coffee-cup .coffee .coffee-inner:before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 25px;
+    background-color: #49362f;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+  .coffee-icon-3 .coffee-cup .coffee .coffee-inner:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 50px;
+    background-color: #987b53;
+    position: absolute;
+    left: 0;
+    bottom: 25px;
+  }
+  .coffee-icon-3 .coffee-cup .cream {
+    width: 67%;
+    height: 60px;
+    background-color: #fff;
+    z-index: 2;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 50%;
+  }
+  .coffee-icon-3 .coffee-cup .cream:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    right: 0;
+    width: 75%;
+    height: 50px;
+    background-color: #fff;
+    margin: auto;
+    border-radius: 50px;
+  }
+  .coffee-icon-3 .coffee-cup .cream:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -28px;
+    left: -38px;
+    right: 0;
+    margin: auto;
+    width: 44px;
+    height: 33px;
+    border-left: 27px solid #fff;
+    border-radius: 50%;
+    transform: rotate(194deg);
+  }
+  @keyframes choco-bar-1 {
+    0% {
+      transform: rotate(15deg);
+    }
+    100% {
+      transform: rotate(20deg);
+    }
+  }
+  @keyframes choco-bar-2 {
+    0% {
+      transform: rotate(35deg);
+    }
+    100% {
+      transform: rotate(30deg);
+    }
+  }
+  .coffee-icon-3 .choco-bars {
+    position: absolute;
+    top: 0px;
+    right: 35px;
+    z-index: 1;
+    height: 80px;
+    width: 40px;
+  }
+  .coffee-icon-3 .choco-bars:before, .coffee-icon-3 .choco-bars:after {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 100%;
+    background-color: #49362f;
+    border-radius: 30px;
+  }
+  .coffee-icon-3 .choco-bars:before {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    transform: rotate(15deg);
+    animation: choco-bar-1 1s linear 0s infinite alternate;
+  }
+  .coffee-icon-3 .choco-bars:after {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    transform: rotate(35deg);
+    animation: choco-bar-2 1s linear 0s infinite alternate;
+  }
+
+  .banner-job {
+	background-color : #00a651;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #fff;
+	position: relative;
+	z-index: 1;
+	padding: 65px 0 75px;
+}
+
+.banner-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-color: rgba(40, 45, 50, 0.9);
+}
+
+.banner-job h1 {
+	font-size: 51px;
+}
+
+.banner-job h3 {
+	font-size: 22px;
+	font-weight: 300;
+	margin: 25px 0 30px;
+}
+
+.banner-job .banner-form input {
+	margin-left: 0;
+	width: 60%;
+}
+
+.banner-job .category-dropdown {
+	border-left: 1px solid #e6e6e6;
+	border-right: 0;
+	border-radius: 0;
+	width: 20%;
+	padding: 0 35px;
+}
+
+.banner-job .dropdown-menu {
+	min-width: 192px;
+}
+
+
+.icons-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+  }
