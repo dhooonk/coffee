@@ -1,0 +1,158 @@
+<section class="wrapper">
+<section class="page_head">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+               <nav id="breadcrumbs">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li>Order</li>
+                    </ul>
+                </nav>
+
+                <div class="page_title">
+                    <h2>만들기</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section class="content elements">
+    <div class="container">
+    <div class="row sub_content">
+
+      <!--Sidebar Widget-->
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="panel-group accordion" id="accordion">
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse02">
+                              <i class="switch fa fa-plus"></i>
+                              커피
+                          </a>
+                      </h4>
+                  </div>
+                  <div id="collapse02" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <div class="slidecontainer">
+                          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                          <p>Value: <span id="demo"></span></p>
+                        </div>
+
+                        <script>
+                        var slider = document.getElementById("myRange");
+                        var output = document.getElementById("demo");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function() {
+                          output.innerHTML = this.value;
+                        }
+                        </script>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse03">
+                              <i class="switch fa fa-plus"></i>
+                              우유
+                          </a>
+                      </h4>
+                  </div>
+                  <div id="collapse03" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <div class="slidecontainer">
+                          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                          <p>Value: <span id="demo"></span></p>
+                        </div>
+
+                        <script>
+                        var slider = document.getElementById("myRange");
+                        var output = document.getElementById("demo");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function() {
+                          output.innerHTML = this.value;
+                        }
+                        </script>
+                      </div>
+                      <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</div>
+                  </div>
+              </div>
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse04">
+                              <i class="switch fa fa-plus"></i>
+                              물
+                          </a>
+                      </h4>
+                  </div>
+                  <div id="collapse04" class="panel-collapse collapse">
+                      <div class="panel-body">
+                        <div class="slidecontainer">
+                          <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+                          <p>Value: <span id="demo"></span></p>
+                        </div>
+
+                        <script>
+                        var slider = document.getElementById("myRange");
+                        var output = document.getElementById("demo");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function() {
+                          output.innerHTML = this.value;
+                        }
+                        </script>
+                      </div>
+                      <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod.</div>
+                  </div>
+              </div>
+          </div>
+          </div>
+
+      <!--post-->
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+          <div class="blog_large">
+            <article class="post">
+              <figure class="post_img">
+
+                <!-- Post Image Slider -->
+                <div class="coffee-mug">
+                  <div class="coffee-container">
+                    <div class="coffee"></div>
+                  </div>
+                </div>
+              </figure>
+              <div class="post_date">
+                <span class="day">28</span>
+                <span class="month">Nov</span>
+              </div>
+              <div class="post_content">
+                <div class="post_meta">
+                  <h2>
+                    <a href="#">미칠듯이 단 아메리카노</a>
+                  </h2>
+                  <div class="metaInfo">
+                    <span><i class="fa fa-calendar"></i> <a href="#">Nov 28, 2015</a> </span>
+                    <span><i class="fa fa-user"></i> By <a href="#">Louis</a> </span>
+                    <span><i class="fa fa-tag"></i> <a href="#">Emin</a>, <a href="#">News</a> </span>
+                    <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
+                  </div>
+                </div>
+                <p>추가된 재료 :<br>
+                  커피 + 우유 + 우유거품<br>
+                </div>
+
+            </article>
+            <button class="btn btn-default btn-sm btn-block" type="button">저장하기</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!--end wrapper-->
