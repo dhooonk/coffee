@@ -1,0 +1,133 @@
+// Place all the styles related to the recipe controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.slidecontainer {
+    width: 100%;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+// coffee
+
+$cup-color: #000000;
+$font-size: 16px;
+
+.coffee {
+  position: relative;
+  display: inline-block;
+  margin: 0 auto;
+  margin-top: 50px;
+
+  .cup {
+    position: relative;
+    width: 200px;
+    height: 180px;
+    overflow: hidden;
+    border: 8px solid $cup-color;
+    display:table-cell;
+    vertical-align:bottom;
+    color: #ffffff;
+
+    div {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      display: table;
+      font-size: 0;
+
+      span {
+        display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        opacity: 0;
+      }
+    }
+
+    .espresso {       background: #BF6A30;}
+    .milk {           background: #FFBA40;}
+    .foam {           background: #FFCC73;}
+    .water {          background: #00A287;}
+  }
+
+  .handle {
+    position: absolute;
+    right: -35px;
+    height: 70px;
+    width: 40px;
+    border: 15px solid $cup-color;
+    border-left: none;
+  }
+
+
+  .showItem {
+    font-size: $font-size;
+    span {
+      opacity: 1;
+    }
+  }
+  .hideItem {
+    height: 0%;
+    line-height: 0;
+  }
+
+  &[data-type="americano"] .cup {
+    .espresso {       height: 33%; @extend .showItem; }
+    .water {          height: 67%; @extend .showItem; }
+    .milk {           @extend .hideItem; }
+    .foam {           @extend .hideItem; }
+  }
+  &[data-type="latte"] .cup {
+    .espresso {       height: 33%; @extend .showItem; }
+    .water {          @extend .hideItem; }
+    .milk {           height: 47%; @extend .showItem; }
+    .foam {           height: 20%; @extend .showItem; }
+  }
+  &[data-type="flat-white"] .cup {
+    .espresso {       height: 33%; @extend .showItem; }
+    .water {          @extend .hideItem; }
+    .milk {           height: 47%; @extend .showItem; }
+    .foam {           @extend .hideItem; }
+  }
+  &[data-type="cappuccino"] .cup {
+    .espresso {       height: 33%; @extend .showItem; }
+    .water {          @extend .hideItem; }
+    .milk {           height: 20%; @extend .showItem; }
+    .foam {           height: 47%; @extend .showItem; }
+  }
+}
+
+.btn-group {display:block; margin-top: 50px;}

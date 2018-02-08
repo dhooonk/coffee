@@ -1,0 +1,175 @@
+<section class="content left_sidebar">
+    <div class="container">
+      <div class="row">
+        <!--Sidebar Widget-->
+        <div class="col-lg-4 col-md-4 col-sm-4">
+          <div class="sidebar">
+            <div class="widget widget_search">
+              <div class="site-search-area">
+                <form method="get" id="site-searchform" action="#">
+                  <div>
+                    <input class="input-text" name="s" id="s" placeholder="Enter Search keywords..." type="text" />
+                    <input id="searchsubmit" value="Search" type="submit" />
+                  </div>
+                </form>
+              </div><!-- end site search -->
+            </div>
+
+            <div class="widget widget_categories">
+              <div class="widget_title">
+                <h4><span>Categories</span></h4>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse01">
+                                <i class="switch fa fa-plus"></i>
+                                커피
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse01" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <div class="slidecontainer">
+                            <input type="range" min="1" max="100" value="50" class="slider" id="coffeeRange">
+                            <p>Value: <span id="coffee"></span></p>
+                          </div>
+
+                          <script>
+                          var slider = document.getElementById("coffeeRange");
+                          var output = document.getElementById("coffee");
+                          output.innerHTML = slider.value;
+
+                          slider.oninput = function() {
+                            output.innerHTML = this.value;
+                          }
+                          </script>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse02">
+                                <i class="switch fa fa-plus"></i>
+                                물
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse02" class="panel-collapse collapse">
+                        <div class="panel-body"
+                        <div class="slidecontainer">
+                          <input type="range" min="1" max="100" value="50" class="slider" id="waterRange">
+                          <p>Value: <span id="water"></span></p>
+                        </div>
+
+                        <script>
+                        var slider = document.getElementById("waterRange");
+                        var output = document.getElementById("water");
+                        output.innerHTML = slider.value;
+
+                        slider.oninput = function() {
+                          output.innerHTML = this.value;
+                        }
+                        </script>
+                      </div>
+                    </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse03">
+                                <i class="switch fa fa-plus"></i>
+                                얼음
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse03" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <div class="slidecontainer">
+                            <input type="range" min="1" max="100" value="50" class="slider" id="iceRange">
+                            <p>Value: <span id="ice"></span></p>
+                          </div>
+
+                          <script>
+                          var slider = document.getElementById("iceRange");
+                          var output = document.getElementById("ice");
+                          output.innerHTML = slider.value;
+
+                          slider.oninput = function() {
+                            output.innerHTML = this.value;
+                          }
+                          </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+          <div class="blog_large">
+            <article class="post">
+              <figure class="post_img">
+                <!-- Post Image Slider -->
+                <div class="post">
+                  <div class="coffee">
+                    <div class="handle"></div>
+                    <div class="cup">
+                      <div class="foam"><span>Milk Foam</span></div>
+                      <div class="milk"><span>Steamed Milk</span></div>
+                      <div class="water"><span>Water</span></div>
+                      <div class="espresso"><span>Espresso</span></div>
+                    </div>
+                  </div>
+
+                  <div class="btn-group" data-toggle="buttons-radio">
+                    <button type="button" class="btn" data-nav="americano">Americano</button>
+                    <button type="button" class="btn" data-nav="latte">Latte</button>
+                    <button type="button" class="btn" data-nav="flat-white">Flat White</button>
+                    <button type="button" class="btn" data-nav="cappuccino">Cappuccino</button>
+                  </div>
+                  <script>
+                  $(document).on('ready', function(){
+                      $('.btn-group button').on('click', function(e){
+                        e.preventDefault();
+                        $('.coffee').attr('data-type', $(this).attr('data-nav'));
+                      }).eq(0).trigger('click');
+                    });
+                    </script>
+                </div>
+              </figure>
+              <div class="post_date">
+                <span class="day">28</span>
+                <span class="month">Nov</span>
+              </div>
+              <div class="post_content">
+                <div class="post_meta">
+                  <h2>
+                    <a href="#">커피이름</a>
+                  </h2>
+                  <div class="metaInfo">
+                    <span><i class="fa fa-calendar"></i> <a href="#">Nov 28, 2015</a> </span>
+                    <span><i class="fa fa-user"></i> By <a href="#">Louis</a> </span>
+                    <span><i class="fa fa-tag"></i> <a href="#">Emin</a>, <a href="#">News</a> </span>
+                    <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
+                  </div>
+                </div>
+                  커피 내용
+                </div>
+              <ul class="shares">
+                <li class="shareslabel"><h3>Share This Story</h3></li>
+                <li><a class="twitter" href="#" data-placement="bottom" data-toggle="tooltip" title="Twitter"></a></li>
+                <li><a class="facebook" href="#" data-placement="bottom" data-toggle="tooltip" title="Facebook"></a></li>
+                <li><a class="gplus" href="#" data-placement="bottom" data-toggle="tooltip" title="Google Plus"></a></li>
+                <li><a class="pinterest" href="#" data-placement="bottom" data-toggle="tooltip" title="Pinterest"></a></li>
+                <li><a class="yahoo" href="#" data-placement="bottom" data-toggle="tooltip" title="Yahoo"></a></li>
+                <li><a class="linkedin" href="#" data-placement="bottom" data-toggle="tooltip" title="LinkedIn"></a></li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+<!--end wrapper-->
