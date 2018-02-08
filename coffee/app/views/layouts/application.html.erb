@@ -15,29 +15,6 @@
   </head>
 
   <body>
-    <script>
-        $(document).ready(function (){
-            
-            // 하이라이트 처리
-            var highlight = '<%= @highlight %>';
-
-            if (highlight === '') {
-                highlight = 'home';
-            }
-            
-            $("#nav-bar").children().each(function (li) {
-                
-                $(this).removeClass('active');
-            });
-
-            if (highlight === 'home') {
-                $("#nav_home").addClass("active");
-            } else if (highlight === 'orders') {
-                $("#nav_pct").addClass("active");
-            }
-        })
-    </script>
-
     <header id="header">
     <!-- Start header-top -->
     <div class="header-top">
@@ -99,8 +76,7 @@
                             <li id="nav_pct"><a href="#"><span class="data-hover" data-hover="음료">음료</span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="elements.html">만들기</a></li>
-                                    <!-- <li><a href="/orders">주문하기</a></li> --> 
-                                    <li><%= link_to '주문하기', orders_path(:highlight => "orders") %></li>
+                                    <li><%= link_to '주문하기', orders_path() %></li>
                                 </ul>
                             </li>
     

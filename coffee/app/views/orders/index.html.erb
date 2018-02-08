@@ -157,7 +157,7 @@
         <p>총 가격은 <span id="valConfirm"></span>입니다.</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">주문하기</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="ajax_order">주문하기</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
       </div>
     </div>
@@ -206,6 +206,16 @@ $(document).ready(function (){
 
         $("#valConfirm").html( $("#totalVal").html() );
     }); 
+
+    $('#ajax_order').click(function(){
+        $.ajax({
+            url: '<%= ajaxs_order_path %>',
+            method: 'post',
+            data: {
+                'hi' : "hi"
+            }
+        })
+    })
     
 })
 

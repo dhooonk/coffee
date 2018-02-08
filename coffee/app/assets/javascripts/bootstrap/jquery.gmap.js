@@ -8,7 +8,7 @@ function loadScript() {
 	script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' + 'callback=initialize';
 	document.body.appendChild(script);
 }
-window.onload = loadScript;
+//window.onload = loadScript;
 
 /* ==========================================================================
 	Google Maps SETTING's
