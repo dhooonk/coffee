@@ -49,10 +49,24 @@
                 <th class="col-lg-1 col-md-1 col-sm-1">가격</th>
                 <th class="col-lg-1 col-md-1 col-sm-1">수량</th>
                 <th class="col-lg-1 col-md-1 col-sm-1">총 가격</th>
-                <th class="col-lg-3 col-md-3 col-sm-3"></th>
+                <th class="col-lg-2 col-md-2 col-sm-2"></th>
             </tr>
             </thead>
             <tbody>
+            <% @products.each do |product| %>
+                <tr>
+                    <td><input type="checkbox" name="orderCheck" value="<%= product.id %>" checked=true ></td>
+                    <td><%= product.name %></td>
+                    <td id="pct_val_<%= product.id %>"><%= product.price %></td>
+                    <td><input type="number" class="order-number" min="1"  id="pct_quant_<%= product.id %>" value="1"></td>
+                    <td id="valQuant_<%= product.id %>"><%= product.price %></td>
+                    <td>
+                        <button class="btn btn-xs btn-success" type="button" id="">수정</button>
+                        <button class="btn btn-xs btn-danger" type="button" style='margin-left: 4px;'>삭제</button>
+                    </td>
+                </tr>
+            <% end %>
+            <!-- 
             <tr>
                 <td><input type="checkbox" name="orderCheck" value="1"></td>
                 <td>정말정말 단 아메리카노</td>
@@ -66,58 +80,7 @@
                     </div>
                 </td>
             </tr>
-            <tr>
-                <td><input type="checkbox" name="orderCheck" value="2"></td>
-                <td>헤이즐넛 아이스 아메리카노</td>
-                <td id="pct_val_2">5000</td>
-                <td><input type="number" class="order-number" min="1" id="pct_quant_2" value="1"></td>
-                <td id="valQuant_2">5000</td>
-                <td>
-                    <div class="col-2 btn-group">
-                        <button class="btn btn-xs btn-success" type="button">수정</button>
-                        <button class="btn btn-xs btn-danger" type="button" style='margin-left: 4px;'>삭제</button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderCheck" value="3"></td>
-                <td>우유와 커피 1:1</td>
-                <td id="pct_val_3">4500</td>
-                <td><input type="number" class="order-number" min="1" id="pct_quant_3" value="1"></td>
-                <td id="valQuant_3">4500</td>
-                <td>
-                    <div class="col-2 btn-group">
-                        <button class="btn btn-xs btn-success" type="button">수정</button>
-                        <button class="btn btn-xs btn-danger" type="button" style='margin-left: 4px;'>삭제</button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderCheck" value="4"></td>
-                <td>맥주 + 커피 맥피</td>
-                <td id="pct_val_4">6000</td>
-                <td><input type="number" class="order-number" min="1" id="pct_quant_4" value="1"></td>
-                <td id="valQuant_4">6000</td>
-                <td>
-                    <div class="col-2 btn-group">
-                        <button class="btn btn-xs btn-success" type="button">수정</button>
-                        <button class="btn btn-xs btn-danger" type="button" style='margin-left: 4px;'>삭제</button>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" name="orderCheck" value="5"></td>
-                <td>스웨디시 레몬티</td>
-                <td id="pct_val_5">5000</td>
-                <td><input type="number" class="order-number" min="1" id="pct_quant_5" value="1"></td>
-                <td id="valQuant_5">5000</td>
-                <td>
-                    <div class="col-2 btn-group">
-                        <button class="btn btn-xs btn-success" type="button">수정</button>
-                        <button class="btn btn-xs btn-danger" type="button" style='margin-left: 4px;'>삭제</button>
-                    </div>
-                </td>
-            </tr>
+            -->
             </tbody>
         </table>
     </div>
@@ -153,13 +116,19 @@
       <div class="modal-header">
         <h4 class="modal-title">정말 주문하시겠습니까?</h4>
       </div>
-      <div class="modal-body">
-        <p>총 가격은 <span id="valConfirm"></span>입니다.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" id="ajax_order">주문하기</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
-      </div>
+      
+      <%= form_tag(orders_path, method: "post") do %>
+        <%= hidden_field_tag(:checked_pct, "") %>
+        <%= hidden_field_tag(:val_hidden, "") %>   
+        <div class="modal-body">
+            <p>총 가격은 <span id=valConfirm></span> 입니다.<p>
+        </div>
+        <div class="modal-footer">
+        <%= submit_tag "주문하기", class: "btn btn-default" %>
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="ajax_order">주문하기</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
+        </div>
+      <% end %>
     </div>
     
   </div>
@@ -171,52 +140,44 @@ $(document).ready(function (){
     // 전체가격 초기화
     orderIndex.totalValFn();
 
-    // 수량을 클릭하면 가격이 변하도록 event 추가
+    // 수량을 클릭하면 총가격 수정하고 전체가격 수정
     $( "input[id*='pct_quant_']" ).on('input', function(event) {
         
+        target = $(this).val();
         // 1보다 작으면 에러!
-        if(event.target.value < 1) {
+        if(target < 1) {
             
             alert("1보다 작을 수 없습니다!");
-            event.target.value = 1;
+            target = 1;
         } else {
             
             // input에 소수점을 직접 타이핑 하는 경우 입력 가능
             // floor로 입력 유효성 검사
-            event.target.value = Math.floor(event.target.value);
-
+            target = Math.floor(target);
+            
             // 클릭한 row의 id를 가져옴
             changedId = event.target.id.split("_")[2];
-            
+
             // 그 row의 총 가격 = 가격 * 수량
             $("#valQuant_"+changedId).html(
-                $("#pct_val_"+changedId).text() * $("#pct_quant_"+changedId).val() );
-    
+                $("#pct_val_"+changedId).text() * $("#pct_quant_"+changedId).val() );        
+
         }
         
         // 전체가격 업데이트
         orderIndex.totalValFn();
     });
-    
-    // 모달 추가
-    $("#orderBtn").click(function(){
-        $("#myModal").modal({
-            show: true
-        });
 
-        $("#valConfirm").html( $("#totalVal").html() );
-    }); 
+    // 체크박스를 클릭하면 전체 가격 초기화
+    $( "input[type='checkbox']" ).on('click', function() {
 
-    $('#ajax_order').click(function(){
-        $.ajax({
-            
-            method: 'post',
-            data: {
-                'hi' : "hi"
-            }
-        })
+        orderIndex.totalValFn();
     })
     
+    // 주문하기 버튼을 클릭하면 모달 실행
+    $("#orderBtn").click( function() {
+        orderIndex.modalFn();
+    });
 })
 
 var orderIndex = {
@@ -229,9 +190,35 @@ var orderIndex = {
         // 총 가격을 모두 가져와서 totalVal에 저장합니다.
         $( "td[id*='valQuant_']" ).each(function(eachVal) {
             
-            totalval += +$(this).html();
+            //총 가격의 줄에 체크박스를 가져와서
+            $row_checkbox = $(this).parents("tr").children().eq(0).children();
+            // 체크 되어 있다면 가격에 더한다.
+            if($row_checkbox.prop("checked")) {
+                totalval += +$(this).html();
+            }
+            
         })
         $("#totalVal").html(totalval);
+    },
+
+    modalFn : function() {
+
+        $("#myModal").modal({
+            show: true
+        });
+
+        // 체크된 pct의 id를 "n,n,n"형식으로 저장하기 위한 코드
+        checked_pct = [];
+        $("[name=orderCheck]").each(function(){
+            
+            if($(this).prop("checked")) {checked_pct.push($(this).val());}
+        });
+        
+        // 체크한 pct목록을 hidden input에 추가
+        $("#checked_pct").val(checked_pct);
+
+        $("#val_hidden").val($("#totalVal").html());
+        $("#valConfirm").html( $("#totalVal").html() );
     }
 }
 </script>
