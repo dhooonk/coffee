@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20180208084324) do
     t.string "name"
     t.text "comment"
     t.integer "price"
-    t.binary "confirm"
+    t.string "confirm"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
