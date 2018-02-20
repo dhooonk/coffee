@@ -1,0 +1,92 @@
+<!--start wrapper-->
+<section class="wrapper">
+  <section class="page_head">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                 <nav id="breadcrumbs">
+                      <ul>
+                          <li><a href="index.html">Home</a></li>
+                          <li>Pages</li>
+                      </ul>
+                  </nav>
+
+                  <div class="page_title">
+                      <h2>재료를 추가하는 창입니다.</h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="content typography">
+    <div class="container">
+      <div class="row sub_content">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="dividerHeading">
+            <h4><span>재료추가</span></h4>
+
+          </div>
+        </div>
+        <div class="mrgb-50 clearfix"></div>
+        <div class="pricingBlock theme-color-pt">
+          <!--  DARK-BLUE PRICE ITEM  -->
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="pricingTable"><!-- BODY BOX-->
+              <div class="pricingTable-header"><!-- HEADER BOX-->
+                <span class="heading">재료 추가</span>
+                <span class="price-value"><span>재료추가</span><span class="mo">!</span></span>
+              </div><!--/ BODY BOX-->
+
+              <div class="pricingContent">
+                <%= form_tag(admin_index_path, method: "post") do %>
+                <ul>
+                  <li><strong>이름</strong> : <%=text_field_tag 'name' %></li>
+                  <li><strong>카테고리</strong> :
+                    <div class="radio">
+    <label><input type="radio" name="category" value="coffee">커피</label>
+    <label><input type="radio" name="category" value="water">물</label>
+    <label><input type="radio" name="category" value="milk">우유</label>
+    <label><input type="radio" name="category" value="bubble">거품</label>
+    <label><input type="radio" name="category" value="syrup">시럽</label>
+    <label><input type="radio" name="category" value="deco">데코</label>
+
+  </div></li>
+                  <li><strong>가격</strong> : <%=text_field_tag 'price' %></li>
+                  <li><strong>설명</strong> : <%=text_field_tag 'comment' %></li>
+                </ul>
+              </div><!-- /  CONTENT BOX-->
+
+              <div class="pricingTable-sign-up"><!-- BUTTON BOX-->
+                <input type ="submit" class="btn btn-block btn-default" value="확인">
+              </div><!-- BUTTON BOX-->
+
+              <% end %>
+            </div><!--/ BODY BOX-->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+      <section class="promo_box">
+          <div class="container">
+              <div class="row">
+                  <div class="col-sm-9">
+                      <div class="promo_content">
+                          <h3>멋쟁이사자처럼 6기 운영진</h3>
+                          <p>공부하기 위해서 만들었습니다.</p>
+                      </div>
+                  </div>
+                  <div class="col-sm-3">
+                      <div class="pb_action">
+                          <a class="btn btn-lg btn-default" href="#fakelink">
+                              <i class="fa fa-shopping-cart"></i>
+                              서비스설명
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+</section>	<!--end wrapper-->

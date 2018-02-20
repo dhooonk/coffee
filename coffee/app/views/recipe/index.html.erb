@@ -1,3 +1,22 @@
+<section class="wrapper">
+    <section class="page_head">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                   <nav id="breadcrumbs">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li>Pages</li>
+                        </ul>
+                    </nav>
+
+                    <div class="page_title">
+                        <h2>레시피를 만드는 창입니다.</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <section class="content left_sidebar">
     <div class="container">
       <div class="row">
@@ -19,6 +38,8 @@
               <div class="widget_title">
                 <h4><span>Categories</span></h4>
                 </div>
+<%= form_tag(recipe_index_path, method: "post") do %>
+                    <div class="panel-group accordion" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
@@ -30,79 +51,21 @@
                     </div>
                     <div id="collapse01" class="panel-collapse collapse">
                         <div class="panel-body">
+                          <% @coffees.each do |i| %>
                           <div class="slidecontainer">
-                            <input type="range" min="1" max="100" value="50" class="slider" id="coffeeRange">
-                            <p>Value: <span id="coffee"></span></p>
+                            <div class="checkbox">
+                              <label><input type="checkbox" name="ing_checkbox" value="ingredient_<%=i.id%>"><%= i.name %></label>
+                            <input type="range" min="1" max="100" value="50" class="slider" id="coffeeRange_<%=i.id%>">
+                            <p>Value: <span id="ingredient_<%=i.id%>"></span></p>
                           </div>
+                          </div>
+                          <% end %>
 
-                          <script>
-                          var slider = document.getElementById("coffeeRange");
-                          var output = document.getElementById("coffee");
-                          output.innerHTML = slider.value;
-
-                          slider.oninput = function() {
-                            output.innerHTML = this.value;
-                          }
-                          </script>
 
                         </div>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse02">
-                                <i class="switch fa fa-plus"></i>
-                                물
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapse02" class="panel-collapse collapse">
-                        <div class="panel-body"
-                        <div class="slidecontainer">
-                          <input type="range" min="1" max="100" value="50" class="slider" id="waterRange">
-                          <p>Value: <span id="water"></span></p>
-                        </div>
-
-                        <script>
-                        var slider = document.getElementById("waterRange");
-                        var output = document.getElementById("water");
-                        output.innerHTML = slider.value;
-
-                        slider.oninput = function() {
-                          output.innerHTML = this.value;
-                        }
-                        </script>
-                      </div>
-                    </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse03">
-                                <i class="switch fa fa-plus"></i>
-                                얼음
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="collapse03" class="panel-collapse collapse">
-                        <div class="panel-body">
-                          <div class="slidecontainer">
-                            <input type="range" min="1" max="100" value="50" class="slider" id="iceRange">
-                            <p>Value: <span id="ice"></span></p>
-                          </div>
-
-                          <script>
-                          var slider = document.getElementById("iceRange");
-                          var output = document.getElementById("ice");
-                          output.innerHTML = slider.value;
-
-                          slider.oninput = function() {
-                            output.innerHTML = this.value;
-                          }
-                          </script>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
         </div>
     </div>
@@ -128,14 +91,6 @@
                     <button type="button" class="btn" data-nav="flat-white">Flat White</button>
                     <button type="button" class="btn" data-nav="cappuccino">Cappuccino</button>
                   </div>
-                  <script>
-                  $(document).on('ready', function(){
-                      $('.btn-group button').on('click', function(e){
-                        e.preventDefault();
-                        $('.coffee').attr('data-type', $(this).attr('data-nav'));
-                      }).eq(0).trigger('click');
-                    });
-                    </script>
                 </div>
               </figure>
               <div class="post_date">
@@ -145,7 +100,7 @@
               <div class="post_content">
                 <div class="post_meta">
                   <h2>
-                    <a href="#">커피이름</a>
+                    <strong>이름</strong> : <%=text_field_tag 'name' %>
                   </h2>
                   <div class="metaInfo">
                     <span><i class="fa fa-calendar"></i> <a href="#">Nov 28, 2015</a> </span>
@@ -154,8 +109,13 @@
                     <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
                   </div>
                 </div>
-                  커피 내용
+                  <strong>설명</strong> : <%=text_field_tag 'comment' %>
                 </div>
+                <div class="col-lg-2 col-md-2 col-xs-12">
+                    <!-- Indicates caution should be taken with this action -->
+                    <input type="submit" class="btn btn-warning btn-block" value='저장'>
+                </div>
+      <%end%>
               <ul class="shares">
                 <li class="shareslabel"><h3>Share This Story</h3></li>
                 <li><a class="twitter" href="#" data-placement="bottom" data-toggle="tooltip" title="Twitter"></a></li>
@@ -172,4 +132,45 @@
     </div>
   </section>
 </section>
+</section>
 <!--end wrapper-->
+
+
+<input type="hidden" value="slkdflskj" id="test">
+                          <script>
+
+                            <% @coffees.each do |i| %>
+
+                            var slider_<%= i.id %> = document.getElementById("coffeeRange_<%=i.id%>");
+                            var output_<%= i.id %> = document.getElementById("ingredient_<%= i.id %>");
+                            output_<%= i.id %>.innerHTML = slider_<%= i.id %>.value;
+
+                            slider_<%= i.id %>.oninput = function() {
+                              output_<%= i.id %>.innerHTML = this.value;
+                            }
+                          <% end %>
+                          var checked_id = [];
+
+                          $(document).on('ready', function(){
+                              $('.btn-group button').on('click', function(e){
+                                e.preventDefault();
+                                $('.coffee').attr('data-type', $(this).attr('data-nav'));
+                              }).eq(0).trigger('click');
+
+                              $("[name=ing_checkbox]").on('click', function() {
+                                if($(this).prop("checked")) {
+                                  // console.log("체크!");
+
+                                  iid = $(this).val().split("_")[1]
+                                  checked_id.push(iid);
+                                } else {
+                                  // console.log("체크ㅌㅌㅌ!");
+                                  iid = $(this).val().split("_")[1]
+                                  checked_id.delete(iid);
+                                }
+
+                                $("#test").val(checked_id);
+                              });
+
+                            });
+                            </script>
