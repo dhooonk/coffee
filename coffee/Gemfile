@@ -41,6 +41,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 # gem 'jquery.turbolinks'
 
+gem 'bootstrap-sass-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

@@ -16,4 +16,5 @@
 //
 //= require rails-ujs
 //= require_tree .
+//= require twitter/bootstrap
 //
