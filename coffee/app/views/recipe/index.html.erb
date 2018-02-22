@@ -1,28 +1,33 @@
 <section class="wrapper">
-    <section class="page_head">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                   <nav id="breadcrumbs">
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li>Pages</li>
-                        </ul>
-                    </nav>
+  <!-- pagehead -->
+  <section class="page_head">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                  <nav id="breadcrumbs">
+                      <ul>
+                          <li><a href="index.html">Home</a></li>
+                          <li>Make</li>
+                      </ul>
+                  </nav>
 
-                    <div class="page_title">
-                        <h2>레시피를 만드는 창입니다.</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-<section class="content left_sidebar">
+                  <div class="page_title">
+                      <h2>레시피를 만드는 창입니다.</h2>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <!-- leftbar -->
+  <section class="content left_sidebar">
     <div class="container">
       <div class="row">
+
         <!--Sidebar Widget-->
         <div class="col-lg-4 col-md-4 col-sm-4">
           <div class="sidebar">
+
             <div class="widget widget_search">
               <div class="site-search-area">
                 <form method="get" id="site-searchform" action="#">
@@ -34,41 +39,47 @@
               </div><!-- end site search -->
             </div>
 
+            <!-- 사이드바 주요부분 -->
             <div class="widget widget_categories">
               <div class="widget_title">
                 <h4><span>Categories</span></h4>
-                </div>
-<%= form_tag(recipe_index_path, method: "post") do %>
-                    <div class="panel-group accordion" id="accordion">
+              </div>
+              <div class="panel-group accordion" id="accordion">
                 <div class="panel panel-default">
+                  <% @categories.each_with_index do |category, i| %>
                     <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse01">
-                                <i class="switch fa fa-plus"></i>
-                                커피
-                            </a>
-                        </h4>
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>">
+                          <i class="switch fa fa-plus"></i>
+                          <%= category.category  %>
+                        </a>
+                      </h4>
                     </div>
-                    <div id="collapse01" class="panel-collapse collapse">
-                        <div class="panel-body">
-                          <% @coffees.each do |i| %>
-                          <div class="slidecontainer">
-                            <div class="checkbox">
-                              <label><input type="checkbox" name="ing_checkbox" value="ingredient_<%=i.id%>"><%= i.name %></label>
-                            <input type="range" min="1" max="100" value="50" class="slider" id="coffeeRange_<%=i.id%>">
-                            <p>Value: <span id="ingredient_<%=i.id%>"></span></p>
+                    <div id="collapse<%= i %>" class="panel-collapse collapse">
+                      <% @ingredients.where(category: category.category).each do |ingredient| %>
+                          <div class="panel-body">
+                              <div class="slidecontainer">
+                                <div class="checkbox">
+                                  <label><input type="checkbox" id="checkbox_<%=ingredient.id%>" name="ing_checkbox" value="<%=ingredient.id%>"><%= ingredient.name %></label>
+                                  <input type="range" min="30" max="200" step="10" value="50" class="slider" id="ing_range_<%=ingredient.id%>">
+                                  <p>
+                                    가격 : <span id="ing_price_<%=ingredient.id%>"> <%= ingredient.price %> </span>| 
+                                    용량: <span id="ing_value_<%=ingredient.id%>"></span> | 
+                                    총 가격 : <span id="ing_total_value_<%= ingredient.id %>"></span> ￦
+                                  </p>
+                                </div>
+                              </div>
                           </div>
-                          </div>
-                          <% end %>
-
-
-                        </div>
+                      <% end %>
                     </div>
+                  <% end %>
                 </div>
               </div>
             </div>
+          </div>
         </div>
-    </div>
+
+        <!-- main content -->
         <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
           <div class="blog_large">
             <article class="post">
@@ -93,84 +104,134 @@
                   </div>
                 </div>
               </figure>
-              <div class="post_date">
-                <span class="day">28</span>
-                <span class="month">Nov</span>
-              </div>
-              <div class="post_content">
-                <div class="post_meta">
-                  <h2>
-                    <strong>이름</strong> : <%=text_field_tag 'name' %>
-                  </h2>
-                  <div class="metaInfo">
-                    <span><i class="fa fa-calendar"></i> <a href="#">Nov 28, 2015</a> </span>
-                    <span><i class="fa fa-user"></i> By <a href="#">Louis</a> </span>
-                    <span><i class="fa fa-tag"></i> <a href="#">Emin</a>, <a href="#">News</a> </span>
-                    <span><i class="fa fa-comments"></i> <a href="#">12 Comments</a></span>
+
+    
+              <%= form_tag(recipe_index_path, method: "post") do %>
+                <div class>
+                  <div class="post_meta">
+                      <h2>
+                        <span>제품 이름 : <%=text_field_tag :pct_name, nil, required: true %> </span>
+                        <span>가격 : <span id="whole_value">0</span>원 </span>
+                      </h2>
+                      <h4>제품 설명</h4>
+                      <%= text_area_tag :pct_comment, nil, size: "24x6", placeholder: "당신의 제품은 어떤가요?", required: true  %>
+                      <%= hidden_field_tag :pct_price, "" %>
+                      <%= hidden_field_tag :checked, "1" %>
+                    <div class="metaInfo">
+                    </div>
+                  </div>
+                  <div style="display: flex;justify-content: flex-end;">
+                    <div class="col-lg-2 col-md-2 col-xs-12">
+                        <!-- Indicates caution should be taken with this action -->
+                          <%= submit_tag "저장", class: 'btn btn-warning btn-block', id: "submitBtn"  %>
+                    </div>
                   </div>
                 </div>
-                  <strong>설명</strong> : <%=text_field_tag 'comment' %>
-                </div>
-                <div class="col-lg-2 col-md-2 col-xs-12">
-                    <!-- Indicates caution should be taken with this action -->
-                    <input type="submit" class="btn btn-warning btn-block" value='저장'>
-                </div>
-      <%end%>
-              <ul class="shares">
-                <li class="shareslabel"><h3>Share This Story</h3></li>
-                <li><a class="twitter" href="#" data-placement="bottom" data-toggle="tooltip" title="Twitter"></a></li>
-                <li><a class="facebook" href="#" data-placement="bottom" data-toggle="tooltip" title="Facebook"></a></li>
-                <li><a class="gplus" href="#" data-placement="bottom" data-toggle="tooltip" title="Google Plus"></a></li>
-                <li><a class="pinterest" href="#" data-placement="bottom" data-toggle="tooltip" title="Pinterest"></a></li>
-                <li><a class="yahoo" href="#" data-placement="bottom" data-toggle="tooltip" title="Yahoo"></a></li>
-                <li><a class="linkedin" href="#" data-placement="bottom" data-toggle="tooltip" title="LinkedIn"></a></li>
-              </ul>
+              <%end%>
             </article>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 </section>
-</section>
+
 <!--end wrapper-->
+<script>  
+$(document).on('ready', function(){
 
+    // 커피 그림부분
+    // 이 부분은 건들지 않았습니다!!
+    $('.btn-group button').on('click', function(e){
+      e.preventDefault();
+      $('.coffee').attr('data-type', $(this).attr('data-nav'));
+    }).eq(0).trigger('click');
 
-<input type="hidden" value="slkdflskj" id="test">
-                          <script>
+    ingredient.init(); // 슬라이더 초기세팅
 
-                            <% @coffees.each do |i| %>
+    ingredient.checkbox_init(); // 체크박스를 클릭하면 값이 변경되는 이벤트 설정
 
-                            var slider_<%= i.id %> = document.getElementById("coffeeRange_<%=i.id%>");
-                            var output_<%= i.id %> = document.getElementById("ingredient_<%= i.id %>");
-                            output_<%= i.id %>.innerHTML = slider_<%= i.id %>.value;
+    $("#submitBtn").on('click', function () {
+      ingredient.check_hash();
+    })
+  });
 
-                            slider_<%= i.id %>.oninput = function() {
-                              output_<%= i.id %>.innerHTML = this.value;
-                            }
-                          <% end %>
-                          var checked_id = [];
+  var ingredient = {
+  
+    // slider 초기값 세팅 & oninput 이벤트 추가
+    init : function () {
 
-                          $(document).on('ready', function(){
-                              $('.btn-group button').on('click', function(e){
-                                e.preventDefault();
-                                $('.coffee').attr('data-type', $(this).attr('data-nav'));
-                              }).eq(0).trigger('click');
+      // 기존에 1개씩만 가져오던 코드를 고쳐서 한번에 담아버렸습니다.
+      var sliders = $("[id*=ing_range_]");
+      var outputs = $("[id*=ing_value_]");
 
-                              $("[name=ing_checkbox]").on('click', function() {
-                                if($(this).prop("checked")) {
-                                  // console.log("체크!");
+      outputs.each(function (i) {           // 초기값 세팅
+        
+        $(this).html(50);
+        var price = $(this).prev().html();
+        $(this).next().html(price * 50);
+      });
 
-                                  iid = $(this).val().split("_")[1]
-                                  checked_id.push(iid);
-                                } else {
-                                  // console.log("체크ㅌㅌㅌ!");
-                                  iid = $(this).val().split("_")[1]
-                                  checked_id.delete(iid);
-                                }
+      // 슬라이더를 이동하면 밑에 값이 바뀌게
+      sliders.on('input', function() {
 
-                                $("#test").val(checked_id);
-                              });
+        // 클릭한 슬라이더 id parsing
+        var click_slider_id = $(this).attr("id").split("_")[2];
+        
+        // value : 부분에 변경된 값 넣기
+        $("#ing_value_"+click_slider_id).html( $(this).val() );
+        
+        // 총가격 변경
+        var price = +$("#ing_price_"+click_slider_id).html();
+        var quantity = +$("#ing_value_"+click_slider_id).html();
+        var totalV = price * quantity;
 
-                            });
-                            </script>
+        $("#ing_total_value_"+click_slider_id).html(totalV);
+
+        ingredient.whole_update();
+      });
+    },
+
+    checkbox_init : function () {
+      $("[name=ing_checkbox]").on('click', function() {
+        ingredient.whole_update();
+      });
+    },
+
+    //전체가격 업데이트
+    whole_update : function() {
+
+      var whole_value = 0;
+      $("[id*=ing_total_value_]").each(function () {
+
+        var id = $(this).attr('id').split("_")[3];
+        var checkbox = $("#checkbox_" + id);
+        
+        if (checkbox.prop("checked")) {
+          whole_value += +$(this).html();
+        }
+      });
+      $("#whole_value").html(whole_value);
+      $("#pct_price").val(whole_value);
+    },
+
+    // 체크박스 hash데이터
+    // {체크박스 id : 수량}
+    check_hash : function () {
+      var checkedObj = {};
+
+      $("[id*=ing_value_]").each(function () {
+
+        var id = $(this).attr('id').split("_")[2];
+        var checkbox = $("#checkbox_" + id);
+
+        if (checkbox.prop("checked")) {
+          checkedObj[id] = $(this).html();
+        }
+      });
+
+      $("#checked").val(JSON.stringify(checkedObj));
+    }
+}
+</script>
